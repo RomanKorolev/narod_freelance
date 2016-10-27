@@ -1,3 +1,5 @@
 www/application/cache/*.
 www/tmp/*
 www/ses/*
+1.bat
+
