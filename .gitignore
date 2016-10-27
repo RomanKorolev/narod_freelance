@@ -1,0 +1,3 @@
+www/application/cache/*.
+www/tmp/*
+www/ses/*
