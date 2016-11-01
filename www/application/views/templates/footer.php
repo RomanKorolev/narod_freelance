@@ -1,3 +1,3 @@
-                <em>&copy; 2015 - <?=date('Y');?></em>
+                <em>&copy; <?=date('Y');?></em>
         </body>
 </html>

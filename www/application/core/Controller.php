@@ -93,4 +93,22 @@ class CI_Controller {
 		return self::$instance;
 	}
 
+	// --------------------------------------------------------------------
+	// Extending functional of Controller
+	// Добавляем сюда полезные фишки
+
+	public function header($data = array(), $template = 'templates/header'){
+	        $this->load->view($template, $data);
+	}
+
+	public function footer($data = array(), $template = 'templates/footer'){
+	        $this->load->view($template, $data);
+	}
+
+        public function view_load($data, $template){
+	        $this->header($data);
+        	$this->load->view($template, $data);
+	        $this->footer($data);
+	}
+
 }
