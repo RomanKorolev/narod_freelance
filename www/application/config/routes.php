@@ -52,19 +52,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-//$route['default_controller'] = 'pages/view';
-
-//News
-$route['news/create'] = 'news/create';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news'] = 'news';
-
-//Projects
-$route['projects/create'] = 'projects/create';
-$route['projects/(:any)'] = 'projects/view/$1';
-$route['projects'] = 'projects';
-
-//переправляет с /about на pages/view/about
-$route['(:any)'] = 'pages/view/$1';
-
