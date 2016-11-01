@@ -16,3 +16,4 @@ www/подсказки
 www/_struct
 auth
 1.rb
+log/*

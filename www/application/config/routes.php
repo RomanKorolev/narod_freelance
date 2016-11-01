@@ -61,9 +61,11 @@ $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 
 //Projects
-$route['projects/create'] = 'projects/create';
-$route['projects/(:any)'] = 'projects/view/$1';
 $route['projects'] = 'projects';
+$route['projects/create'] = 'projects/create';
+$route['projects/.*_(:num)'] = 'projects/view/$1';
+$route['default_controller'] = 'projects';
+$route['cron'] = 'cron';
 
 //переправляет с /about на pages/view/about
 $route['(:any)'] = 'pages/view/$1';

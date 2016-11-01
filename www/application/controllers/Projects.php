@@ -12,16 +12,16 @@ class Projects extends CI_Controller{
         public function index(){
 		$data = array();
                 $data['projects'] = $this->projects_model->get_projects();
-	        $data['title'] = 'Projects';
+	        $data['title'] = 'Все проекты народного фриланса';
 
 	        $this->view_load($data, 'projects/index');
         }
 
         public function view($id = NULL, $slug = NULL){
 		$data = array();
-                $data['project_item'] = $this->projects_model->get_projects($login);
+                $data['project_item'] = $this->projects_model->get_projects($id);
 
-	        if (empty($data['projects_item'])){
+	        if (empty($data['project_item'])){
         	        show_404();
 	        }
 

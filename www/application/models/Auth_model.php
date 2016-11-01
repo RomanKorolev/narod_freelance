@@ -1,7 +1,11 @@
 <?php
 
-class News_model extends CI_Model {
+class Auth_model extends CI_Model {
 
+	public function is_auth(){
+                $query = $this->db->get('users');
+	}
+/*
 	public function get_news($slug = FALSE){
         	if ($slug === FALSE){
 	                $query = $this->db->get('news');
@@ -25,4 +29,5 @@ class News_model extends CI_Model {
 
 		return $this->db->insert('news', $data);
 	}
+*/
 }

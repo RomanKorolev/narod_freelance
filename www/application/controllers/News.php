@@ -30,7 +30,8 @@ class News extends CI_Controller{
 	        $this->view_load($data, 'news/view');
         }
 
-	public function create(){
+#	public 
+	protected function create(){
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 

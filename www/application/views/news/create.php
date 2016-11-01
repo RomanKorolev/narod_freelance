@@ -12,10 +12,10 @@ if(!empty($errors)):
 <?php echo form_open('news/create'); ?>
 
     <label for="title">Title</label>
-    <input type="input" name="title" value="<?php echo html_escape($form['title']); ?>" /><br />
+    <input type="input" name="title" value="<?php echo H($form['title']); ?>" /><br />
 
     <label for="text">Text</label>
-    <textarea name="text"><?php echo html_escape($form['text']); ?></textarea><br />
+    <textarea name="text"><?php echo H($form['text']); ?></textarea><br />
 
     <input type="submit" name="submit" value="Create news item" />
 

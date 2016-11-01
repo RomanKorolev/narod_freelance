@@ -25,7 +25,7 @@ class Users extends CI_Controller{
         	        show_404();
 	        }
 
-	        $data['title'] = $data['uses_item']['title'];
+	        $data['title'] = $data['user_item']['title'];
 
 	        $this->view_load($data, 'users/view');
         }
