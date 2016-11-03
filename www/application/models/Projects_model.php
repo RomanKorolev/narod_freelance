@@ -2,15 +2,15 @@
 
 class Projects_model extends CI_Model {
 
-	public function get_projects($id = FALSE){
-#var_dump($id);
-        	if ($id === FALSE){
-	                $query = $this->db->get('projects');
-        	        return $query->result_array();
-	        }
+	const ProjectsPerPage = 20;
 
+	public function get_projects($offset = 0){
+		$query = $this->db->order_by('id', 'desc')->get('projects', self::ProjectsPerPage, ((int)$offset) * self::ProjectsPerPage);
+       	        return $query->result_array();
+	}
+
+	public function get_project($id = FALSE){
 	        $query = $this->db->get_where('projects', array('id' => $id));
-#var_dump($query);
         	return $query->row_array();
 	}
 

@@ -9,9 +9,9 @@ class Projects extends CI_Controller{
                 $this->load->helper('url_helper');
         }
 
-        public function index(){
+        public function index($offset = 0){
 		$data = array();
-                $data['projects'] = $this->projects_model->get_projects();
+                $data['projects'] = $this->projects_model->get_projects((int)$offset);
 	        $data['title'] = 'Все проекты народного фриланса';
 
 	        $this->view_load($data, 'projects/index');
@@ -19,7 +19,7 @@ class Projects extends CI_Controller{
 
         public function view($id = NULL, $slug = NULL){
 		$data = array();
-                $data['project_item'] = $this->projects_model->get_projects($id);
+                $data['project_item'] = $this->projects_model->get_project($id);
 
 	        if (empty($data['project_item'])){
         	        show_404();

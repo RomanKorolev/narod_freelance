@@ -12,8 +12,13 @@
 	<div class="project">
         <h3><a href="<?php echo $url; ?>" title="<?php echo $_title; ?>"><?php echo $_title; ?></a></h3>
         <div class="project_desc">
-                <?php echo H($project_item['desc']); ?>
+		<?php echo H($project_item['desc']); ?>
         </div>
+<?php 
+#if($project_item['budget']){ 
+#<div class="budget"> $project_item['budget'] руб</div>
+#}
+?>
         <p><a href="<?php echo $url; ?>" title="<?php echo $_title; ?>">перейти к проекту</a>
 	</div>
 <?php } ?>
