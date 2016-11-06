@@ -10,9 +10,18 @@ class Projects extends CI_Controller{
         }
 
         public function index($offset = 0){
+		$offset = (int) $offset;
+                $this->load->helper('pager_helper');
 		$data = array();
-                $data['projects'] = $this->projects_model->get_projects((int)$offset);
+                $data['projects'] = $this->projects_model->get_projects($offset);
 	        $data['title'] = 'Все проекты народного фриланса';
+
+                $data['total_projects'] = $this->projects_model->get_total_projects($data);
+
+		#$data['total_pages'] = ceil((1.0 * $projects_count) / self::ProjectsPerPage);
+		#$data['projects_count'] = $projects_count;
+		
+		$data['pager'] = pager("projects", $data['total_pages'], $offset);
 
 	        $this->view_load($data, 'projects/index');
         }
@@ -29,6 +38,8 @@ class Projects extends CI_Controller{
 
 	        $this->view_load($data, 'projects/view');
         }
+
+	
 /*
 	public function create(){
 		$this->load->helper('form');

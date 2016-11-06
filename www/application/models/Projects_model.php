@@ -14,6 +14,15 @@ class Projects_model extends CI_Model {
         	return $query->row_array();
 	}
 
+	public function get_total_projects(&$data){
+	        $query = $this->db->query('select count(id) as `cnt` from projects');
+		$row = $query->row_array();
+		$projects_count = $row['cnt'];
+		$data['total_pages'] = ceil((1.0 * $projects_count) / self::ProjectsPerPage);
+		$data['projects_count'] = $projects_count;
+		return $row['cnt'];
+	}
+
 /*
 	public function register_user(){
 		$this->load->helper('url');

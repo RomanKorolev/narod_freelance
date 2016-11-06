@@ -21,4 +21,9 @@
 ?>
         <p><a href="<?php echo $url; ?>" title="<?php echo $_title; ?>">перейти к проекту</a>
 	</div>
+
 <?php } ?>
+
+<div class="pager">
+	<?=$pager;?>
+</div>
