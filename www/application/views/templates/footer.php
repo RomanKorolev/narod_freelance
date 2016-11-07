@@ -5,6 +5,7 @@
 <!-- /Yandex.Metrika counter -->
 
 		                <em><a href="/" title="Народный фриланс">Народный фриланс</a> &copy; <?=date('Y');?></em>
+				Page rendered in <strong>{elapsed_time}</strong> seconds.
 			</p>
 		</div><!-- #container -->
         </body>

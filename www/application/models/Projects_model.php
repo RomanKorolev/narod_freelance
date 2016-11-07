@@ -11,7 +11,11 @@ class Projects_model extends CI_Model {
 
 	public function get_project($id = FALSE){
 	        $query = $this->db->get_where('projects', array('id' => $id));
-        	return $query->row_array();
+        	$row = $query->row_array();
+	        $query = $this->db->get_where('proj_origin', array('id' => $id));
+        	$row2 = $query->row_array();
+		$row['link'] = $row2['link'];
+		return $row;
 	}
 
 	public function get_total_projects(&$data){
