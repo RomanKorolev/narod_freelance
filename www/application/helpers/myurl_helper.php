@@ -12,6 +12,9 @@ function get_projects_page($page){
 	return site_url('projects/page-' . $page);
 }
 
+function get_tag_url($tag){
+	return site_url('tags/' . $tag);
+}
 
 function H($text){
 	return html_escape($text);

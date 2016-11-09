@@ -27,14 +27,17 @@ class Projects extends CI_Controller{
         }
 
         public function view($id = NULL, $slug = NULL){
+		$id = (int) $id;
 		$data = array();
                 $data['project_item'] = $this->projects_model->get_project($id);
 
 	        if (empty($data['project_item'])){
         	        show_404();
 	        }
+                $this->load->model('tags_model');
 
 	        $data['title'] = $data['project_item']['title'];
+		$data['tags'] = $this->tags_model->get_project_tags($id);
 
 	        $this->view_load($data, 'projects/view');
         }
