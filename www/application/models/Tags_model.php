@@ -18,4 +18,10 @@ class Tags_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_projects_by_tags($tag_id){
+		$tag_id = (int) $tag_id;
+		$query = $this->db->query("select * from projects where id in (select project_id from project_tags as a where a.tag_id=$tag_id)");
+		return $query->result_array();
+	}
+	
 }

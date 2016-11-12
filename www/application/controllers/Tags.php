@@ -22,7 +22,7 @@ class Tags extends CI_Controller{
 	        if (empty($data['tags_item'])){
         	        show_404();
 	        }
-		$data['projects'] = array();
+		$data['projects'] = $this->tags_model->get_projects_by_tags($data['tags_item']['id']);
 		$data['pager'] = '';
                 $this->view_load($data, 'projects/index');
 	}
