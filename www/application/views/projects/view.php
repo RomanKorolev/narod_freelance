@@ -5,7 +5,7 @@
 	foreach($tags as $tag){
 		$url = get_tag_url($tag['tag']);
 		$t = $tag['tag'];
-		?> <span><a href="<?=$url;?>" title="Все проекты с тегом <?=$t;?>"><?=$t;?></span><?
+		?> <span><a href="<?=$url;?>" title="Все проекты с тегом <?=$t;?>"><?=$t;?></a></span><?
 	}
 ?>
 </div>
