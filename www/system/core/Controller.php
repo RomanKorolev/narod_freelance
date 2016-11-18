@@ -111,4 +111,10 @@ class CI_Controller {
 	        $this->footer($data);
 	}
 
+        public function auth(){
+		if(!$this->session->loginned){
+			redirect(site_url('login'));
+		}
+	}
+
 }

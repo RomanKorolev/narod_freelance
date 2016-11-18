@@ -8,13 +8,13 @@
 	</style>
 </head>
 <body>
+<?php if(!isset($notopmenu)): ?>
 <div class="header">
-<?php if(!isset($not3opmenu)): ?>
 	<div class="menu">
 <?php	
 if(!isset($section)) $section = 'projects';
 $_menu_links = array(
-#	'main'		=> array('/', 		'Главная'),
+#	'main'		=> array('', 		'Главная'),
 	'projects'	=> array('projects', 	'Проекты'),
 	'tags'		=> array('tags', 	'Теги'),
 //	'about'		=> array('', ''),
@@ -29,9 +29,8 @@ EOS;
 	}
 ?>
 	</div>
-<?php endif; ?>
-
 </div>
+<?php endif; ?>
 <?
 #var_dump( $this->session->login );
 if(!isset($this->session->login)){

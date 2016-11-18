@@ -16,6 +16,20 @@ function get_tag_url($tag){
 	return site_url('tags/' . $tag);
 }
 
+function get_refer($local_only = true){
+	if(!isset($_SERVER['HTTP_REFERER'])){
+		return "";
+	}
+	$refer = $_SERVER['HTTP_REFERER'];
+	if($local_only){
+		$url = site_url('');
+		if(strpos($refer, $url) === FALSE){
+			return "";
+		}
+	}
+	return $refer;
+}
+
 function H($text){
 	return html_escape($text);
 }

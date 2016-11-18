@@ -1,22 +1,17 @@
-<h2><?php echo $title; ?></h2>
+<?=validation_errors();?>
 
-<?
-	
-$errors = validation_errors();
-if(!empty($errors)):
+<?=form_open('projects/create', array('id' => 'project_form')); ?>
+	<label for="title">Название проекта</label><br />
+	<input type="input" name="title" placeholder="Название проекта" value="<?=set_value('title'); ?>" /><br />
 
-?>
-<div class="error validation"><?=$errors;?></div>
-<? endif; ?>
+	<label for="budget">Бюджет</label><br />
+	<input type="input" name="budget" placeholder="Название проекта" value="<?=set_value('budget'); ?>" /><br />
 
-<?php echo form_open('projects/create'); ?>
+	<label for="text">Описание проекта</label><br />
+	<textarea name="desc" placeholder="Описание проекта, техническое задание" style="width: 100%"><?=set_value('desc'); ?></textarea><br />
 
-    <label for="title">Title</label>
-    <input type="input" name="title" value="<?php echo H($form['title']); ?>" /><br />
+	<input type="submit" class='submit' value="Войти" />
 
-    <label for="text">Text</label>
-    <textarea name="text"><?php echo H($form['text']); ?></textarea><br />
 
-    <input type="submit" name="submit" value="Create news item" />
 
 </form>
