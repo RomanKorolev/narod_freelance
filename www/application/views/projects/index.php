@@ -1,10 +1,3 @@
-<?
-
-#var_dump( $this->session->login);
-
-?>
-
-
 <?php foreach ($projects as $project_item){
 	$url = get_project_url($project_item['id'], $project_item['slug']);
 	$_title = H($project_item['title']);

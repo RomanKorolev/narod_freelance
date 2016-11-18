@@ -12,19 +12,18 @@ class Users_model extends CI_Model {
         	return $query->row_array();
 	}
 
-/*
-	public function register_user(){
-		$this->load->helper('url');
 
+	public function register_user(){
+#		$this->load->helper('url');
 #		$slug = url_title($this->input->post('title'), 'dash', TRUE);
 
 		$data = array(
-			'title' => $this->input->post('title'),
-			'slug' => $slug,
-			'text' => $this->input->post('text')
+			'login' => $this->input->post('login'),
+			'email' => $this->input->post('email'),
+			'pass' => $this->input->post('pass')
 		);
 
 		return $this->db->insert('users', $data);
 	}
-*/
+
 }
