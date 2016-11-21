@@ -27,6 +27,9 @@ class Projects_model extends CI_Model {
 		return $row['cnt'];
 	}
 
+	public function project_status(&$data){
+	        $this->db->insert('projects_status', $data);
+	}
 /*
 	public function register_user(){
 		$this->load->helper('url');

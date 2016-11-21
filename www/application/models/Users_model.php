@@ -55,6 +55,7 @@ class Users_model extends CI_Model {
 
 		$data = array(
 			'loginned' => 1,
+        		'user_id' => $user['id'],
         		'login'	=> $login,
         		'email'	=> $user['email'],
         		'fname'	=> $user['fname'],
