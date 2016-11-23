@@ -9,11 +9,16 @@ class Projects_model extends CI_Model {
        	        return $query->result_array();
 	}
 
-	public function get_project($id = FALSE){
+	public function get_project($id){
+		$id = (int) $id;
 	        $query = $this->db->get_where('projects', array('id' => $id));
+		if(!$query) return null;
         	$row = $query->row_array();
+		if(!$row) return null;
 	        $query = $this->db->get_where('proj_origin', array('id' => $id));
+		if(!$query) return null;
         	$row2 = $query->row_array();
+		if(!$row2) return null;
 		$row['link'] = $row2['link'];
 		return $row;
 	}
