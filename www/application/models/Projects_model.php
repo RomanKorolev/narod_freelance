@@ -33,7 +33,12 @@ class Projects_model extends CI_Model {
 	}
 
 	public function project_status(&$data){
-	        $this->db->insert('projects_status', $data);
+	        $query = $this->db->get_where('projects', array('project_id' => $data['project_id']));
+		if($row = $query->row_array()){
+		        $this->db->update('projects_status', $data, array('project_id' => $data['project_id']));
+		}else{
+		        $this->db->insert('projects_status', $data);
+		}
 	}
 /*
 	public function register_user(){
