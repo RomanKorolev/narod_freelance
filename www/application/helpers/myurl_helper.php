@@ -34,4 +34,21 @@ function H($text){
 	return html_escape($text);
 }
 
+function is_ip4($ip){
+	return preg_match('#^\d{1, 3}\.\d{1, 3}\.\d{1, 3}\.\d{1, 3}$#', $ip);
+}
+
+
+function get_ip(){
+	$ip = '';
+	foreach(array("REMOTE_ADDR", "HTTP_X_REAL_IP", "HTTP_X_FORWARDED_FOR") as $k){
+		if(isset($_SERVER[$k]) && is_ip4($_SERVER[$k])){
+			if(strlen($_SERVER[$k]) > $ip){
+				$ip = $_SERVER[$k];
+			}
+		}
+	}
+	return $ip;
+}
+
 endif;

@@ -33,7 +33,7 @@ class Projects_model extends CI_Model {
 	}
 
 	public function project_status(&$data){
-	        $query = $this->db->get_where('projects', array('project_id' => $data['project_id']));
+	        $query = $this->db->get_where('projects_status', array('project_id' => $data['project_id']));
 		if($row = $query->row_array()){
 		        $this->db->update('projects_status', $data, array('project_id' => $data['project_id']));
 		}else{

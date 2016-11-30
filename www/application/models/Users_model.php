@@ -60,6 +60,7 @@ class Users_model extends CI_Model {
         		'email'	=> $user['email'],
         		'fname'	=> $user['fname'],
         		'sname'	=> $user['sname'],
+			'IP'    => get_ip()
 		);
 		$this->session->set_userdata($data);
 		return true;
