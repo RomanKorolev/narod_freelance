@@ -35,7 +35,7 @@ function H($text){
 }
 
 function is_ip4($ip){
-	return preg_match('#^\d{1, 3}\.\d{1, 3}\.\d{1, 3}\.\d{1, 3}$#', $ip);
+	return preg_match('#^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$#', $ip);
 }
 
 

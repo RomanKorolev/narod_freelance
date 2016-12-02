@@ -78,6 +78,9 @@ class CI_Controller {
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
+
+		$this->load->model('ipstats_model');
+		$this->ipstats_model->inc(get_ip());
 	}
 
 	// --------------------------------------------------------------------
