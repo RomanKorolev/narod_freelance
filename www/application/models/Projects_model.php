@@ -40,6 +40,14 @@ class Projects_model extends CI_Model {
 		        $this->db->insert('projects_status', $data);
 		}
 	}
+
+	public function last_project_id(){
+		$query = $this->db->select_max('projects', 'MAX');
+		if($row = $query->row_array()){
+			return $row['MAX'];
+		}
+		return 0;
+	}
 /*
 	public function register_user(){
 		$this->load->helper('url');

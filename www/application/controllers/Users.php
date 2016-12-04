@@ -8,6 +8,7 @@ class Users extends CI_Controller{
         }
 
         public function index(){
+		session_write_close();
 		$data = array();
                 $data['users'] = $this->users_model->get_users();
 	        $data['title'] = 'Users';
@@ -16,6 +17,7 @@ class Users extends CI_Controller{
         }
 
         public function view($login = NULL){
+		session_write_close();
 		$data = array();
                 $data['user_item'] = $this->users_model->get_users($login);
 

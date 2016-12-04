@@ -9,6 +9,7 @@ class Projects extends CI_Controller{
 
         public function index($offset = 0){
 		session_write_close();
+
 		$offset = (int) $offset;
                 $this->load->helper('pager_helper');
 		$data = array();
@@ -27,6 +28,7 @@ class Projects extends CI_Controller{
 
         public function view($id = NULL, $slug = NULL){
 		session_write_close();
+
 		$id = (int) $id;
 		$data = array();
                 $data['project_item'] = $this->projects_model->get_project($id);

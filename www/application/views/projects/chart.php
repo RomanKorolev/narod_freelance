@@ -26,12 +26,10 @@ $data = join(',', $data);
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
-        data.addRows([
-<?=$data;?>
-        ]);
+        data.addRows([ <?=$data;?> ]);
 
         // Set chart options
-        var options = {'title':'Распределение проектов',
+        var options = {'title':'Распределение проектов по биржам за сутки',
                        'width':400,
                        'height':300};
 

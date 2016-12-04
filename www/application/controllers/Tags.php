@@ -4,6 +4,7 @@ class Tags extends CI_Controller{
 
         public function __construct(){
                 parent::__construct();
+		session_write_close();
                 $this->load->model('tags_model');
         }
 
