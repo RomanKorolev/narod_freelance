@@ -42,7 +42,7 @@ class Projects_model extends CI_Model {
 	}
 
 	public function last_project_id(){
-		$query = $this->db->select_max('projects', 'MAX');
+		$query = $this->db->select_max('id', 'MAX')->get('projects');
 		if($row = $query->row_array()){
 			return $row['MAX'];
 		}
