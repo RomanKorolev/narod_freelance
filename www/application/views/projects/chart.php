@@ -30,7 +30,7 @@ $data = join(',', $data);
 
         // Set chart options
         var options = {'title':'Распределение проектов по биржам за сутки',
-                       'width':400,
+                       'width':500,
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.

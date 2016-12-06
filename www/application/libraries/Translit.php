@@ -42,10 +42,13 @@ class Translit{
 	function to_lat($s, $s_enc = null){
 		if($s_enc){
 			$s = iconv($s_enc, $this->russian_enc, $s);
+		}else{
+			$s_enc = $this->russian_enc;
 		}
 		$out = '';
-		for($i = 0; $i < strlen($s); $i++){
-			$out .= $this->char_to_lat($s[$i]);
+		for($i = 0; $i < mb_strlen($s, $s_enc); $i++){
+			$ss = mb_substr($s, $i, 1, $s_enc);
+			$out .= $this->char_to_lat( $ss );
 		}
 		return $out;
 	}
