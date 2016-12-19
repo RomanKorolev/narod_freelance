@@ -81,6 +81,7 @@ class CI_Controller {
 
 		$this->load->model('ipstats_model');
 		$this->ipstats_model->inc(get_ip());
+		$this->ipstats_model->visits();
 	}
 
 	// --------------------------------------------------------------------

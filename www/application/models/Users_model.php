@@ -52,6 +52,11 @@ class Users_model extends CI_Model {
 		if($user['pass'] != $pass){
 			return false;
 		}
+		$this->db->insert('logins', array(
+			'user_id' => $user['id'], 
+			'IP' => get_ip(),
+			'ua' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ""
+		));
 
 		$data = array(
 			'loginned' => 1,
