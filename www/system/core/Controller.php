@@ -63,7 +63,7 @@ class CI_Controller {
 	 *
 	 * @return	void
 	 */
-	public function __construct()
+	public function __construct($log = true)
 	{
 		self::$instance =& $this;
 
@@ -79,9 +79,11 @@ class CI_Controller {
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
 
-		$this->load->model('ipstats_model');
-		$this->ipstats_model->inc(get_ip());
-		$this->ipstats_model->visits();
+		if($log){
+			$this->load->model('ipstats_model');
+			$this->ipstats_model->inc(get_ip());
+			$this->ipstats_model->visits();
+		}
 	}
 
 	// --------------------------------------------------------------------
