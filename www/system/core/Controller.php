@@ -125,7 +125,7 @@ class CI_Controller {
 		#Check IP, возможно хакеры стянули куки
 		if($this->session->IP != get_ip()){
 			$this->session->unset_userdata(array('user_id', 'login', 'email', 'fname', 'sname'));
-			$this->session->userdata(array('loginned' => 0));
+			$this->session->set_userdata(array('loginned' => 0));
 			redirect(site_url('login'));
 		}
 	}

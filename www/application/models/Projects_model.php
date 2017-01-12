@@ -48,19 +48,21 @@ class Projects_model extends CI_Model {
 		}
 		return 0;
 	}
-/*
-	public function register_user(){
-		$this->load->helper('url');
 
-#		$slug = url_title($this->input->post('title'), 'dash', TRUE);
-
+	public function new_project(){
+		$this->load->library('translit');
+		$this->translit = new Translit("utf-8");
 		$data = array(
+			'user_id' => $this->session->user_id,
 			'title' => $this->input->post('title'),
-			'slug' => $slug,
-			'text' => $this->input->post('text')
+			'budget' => $this->input->post('budget'),
+			'desc' => $this->input->post('desc'),
+			'slug' => preg_replace('#[^A-Za-z\d]+#', '-', $this->translit->to_lat( $this->input->post('title') )),
+			'ts' => time()
 		);
-
-		return $this->db->insert('users', $data);
+	        $this->db->insert('projects', $data);
+		$id = $this->db->insert_id();
+		return $this->get_project($id);
 	}
-*/
+
 }

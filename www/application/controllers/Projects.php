@@ -62,7 +62,9 @@ class Projects extends CI_Controller{
 		if ($this->form_validation->run() === FALSE){
 		        $this->view_load($data, 'projects/create');
 		}else{
-			$this->projects_model->new_project();
+			$project = $this->projects_model->new_project();
+			$data = array('link' => get_project_url($project['id'], $project['slug']));
+		        $data['title'] = "Новый проект успешно создан";
 		        $this->view_load($data, 'projects/success');
 		}
 	}

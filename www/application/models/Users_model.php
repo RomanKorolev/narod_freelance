@@ -30,7 +30,8 @@ class Users_model extends CI_Model {
 			'login' => $this->input->post('login'),
 			'email' => $this->input->post('email'),
 			'pass' => $this->input->post('password'),
-			'reg_IP' => $ip
+			'reg_IP' => $ip,
+			'registred' => time()
 		);
 
 		return $this->db->insert('users', $data);
@@ -57,9 +58,10 @@ class Users_model extends CI_Model {
 			'IP' => get_ip(),
 			'ua' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ""
 		));
+	        $this->db->update('users', array('last_login' => time()), array('id' => $user['id']));
 
 		$data = array(
-			'loginned' => 1,
+			'loginned' => time(),
         		'user_id' => $user['id'],
         		'login'	=> $login,
         		'email'	=> $user['email'],
@@ -69,6 +71,11 @@ class Users_model extends CI_Model {
 		);
 		$this->session->set_userdata($data);
 		return true;
+	}
+
+	public function logout(){
+		$this->session->unset_userdata(array('user_id', 'login', 'email', 'fname', 'sname'));
+		$this->session->set_userdata(array('loginned' => 0));
 	}
 
 }

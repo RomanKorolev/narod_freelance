@@ -17,8 +17,16 @@ $_menu_links = array(
 #	'main'		=> array('', 		'Главная'),
 	'projects'	=> array('projects', 	'Проекты'),
 	'tags'		=> array('tags', 	'Теги'),
+	'projects/create'	=> array('projects/create', 'Добавить проект'),
 //	'about'		=> array('', ''),
 );
+
+if($this->session->loginned){
+	$_menu_links[] = array('logout', 'Выход');
+}else{
+	$_menu_links[] = array('login', 'Вход');
+}
+
 foreach($_menu_links as $_section => $a){
 	$_css_class = ($_section == $section) ? "active" : "";
 	list($_href, $_text) = $a;
